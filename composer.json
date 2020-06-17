@@ -1,0 +1,23 @@
+{
+    "name": "dl/panel",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "omar",
+            "email": "omar@develogs.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dl\\Panel\\": "src/",
+            "Dl\\Panel\\Database\\Seeds": "src/Database/seeds/"
+
+        }
+    },
+    "extra": {
+
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
