@@ -38,11 +38,6 @@ class dbrefresh extends Command
      */
     public function handle()
     {
-        $name = $this->ask('What is your name?');
-        //Log::info($name.'=> db:refresh Command');
-        Log::info('Log message', array($name => 'db:refresh Command'));
-
-        //$this->info('','');
         $this->call('migrate:refresh');
         $this->call('db:seed',['--class'=>'Dl\Panel\Database\Seeds\DatabaseSeeder']);
 
