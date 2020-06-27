@@ -41,7 +41,7 @@ class install extends Command
         Log::info('Log message', array($name => 'Install Command'));
 
         $this->call('db:refresh');
-        $this->call('vendor:publish',['--force']);
+        $this->call('vendor:publish',['--tag'=>'public','--force']);
 
     }
 }
