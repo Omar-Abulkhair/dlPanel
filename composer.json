@@ -16,7 +16,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "v": "1.0"
         },
         "laravel": {
             "providers": [
@@ -24,7 +24,7 @@
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "laravel/ui": "^2.0",
         "nesbot/carbon": "^2.35",
