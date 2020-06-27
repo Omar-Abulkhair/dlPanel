@@ -7,9 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use View;
 use Dl\Panel\Libraries\Facades\Upload;
 use App;
-
-
-
+use Illuminate\Support\Facades\Artisan;
 use Dl\Panel\Console\Commands\dbrefresh;
 
 class DevelogsServiceProvider extends ServiceProvider
@@ -24,7 +22,6 @@ class DevelogsServiceProvider extends ServiceProvider
         App::bind('Upload',function() {
             return new Upload;
         });
-        //$this->mergeConfigFrom(__DIR__."/Config/auth.php","auth.providers.users");
     }
 
     /**
@@ -34,11 +31,9 @@ class DevelogsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Artisan::command('ui vue --auth');
         $publishablePath = dirname(__DIR__).'/public';
         config(['auth.providers.users.model' => Models\User::class]);
-        /*$this->publishes([
-            __DIR__.'/config/auth.php' => config_path('auth.php'),
-        ]);*/
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
