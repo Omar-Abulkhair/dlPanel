@@ -38,7 +38,7 @@ class DevelogsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
         $this->publishes([
-            __DIR__.$publishablePath.'/assets' => public_path('develogs/panel'),
+            $publishablePath.'/assets' => public_path('develogs/panel'),
         ], 'public');
 
 
@@ -52,7 +52,7 @@ class DevelogsServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.$publishablePath.'/app-assets' => public_path('develogs/panel'),
+            $publishablePath.'/app-assets' => public_path('develogs/panel'),
         ], 'public');
 
 
