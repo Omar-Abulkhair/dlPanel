@@ -17,12 +17,16 @@
     "extra": {
         "branch-alias": {
             "dev-master": "0.1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Dl\\Panel\\DevelogsServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
     "require": {
         "laravel/ui": "^2.0",
-        "laravelcollective/html": "^6.1",
         "nesbot/carbon": "^2.35",
         "spatie/laravel-permission": "^3.13",
         "yajra/laravel-datatables-oracle": "~9.0"
