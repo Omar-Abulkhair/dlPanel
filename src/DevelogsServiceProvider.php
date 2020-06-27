@@ -33,6 +33,7 @@ class DevelogsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $publishablePath = dirname(__DIR__).'/public';
         config(['auth.providers.users.model' => Models\User::class]);
         /*$this->publishes([
             __DIR__.'/config/auth.php' => config_path('auth.php'),
@@ -40,7 +41,13 @@ class DevelogsServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
-        View::share('user', 's');
+        $this->publishes([
+            __DIR__.$publishablePath.'/assets' => public_path('develogs/panel'),
+        ], 'public');
+
+        $this->publishes([
+            __DIR__.$publishablePath.'/app-assets' => public_path('develogs/panel'),
+        ], 'public');
 
 
         if ($this->app->runningInConsole()) {
