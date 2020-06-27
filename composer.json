@@ -15,9 +15,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "0.1.x-dev"
-        },
         "laravel": {
             "providers": [
                 "Dl\\Panel\\DevelogsServiceProvider"
@@ -25,6 +22,7 @@
         }
     },
     "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "laravel/ui": "^2.0",
         "nesbot/carbon": "^2.35",
