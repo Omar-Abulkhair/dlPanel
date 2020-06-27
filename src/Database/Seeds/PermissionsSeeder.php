@@ -16,10 +16,10 @@ class PermissionsSeeder extends Seeder
     {
         $ex = ['failed_jobs', 'migrations', 'model_has_permissions', 'model_has_roles', 'password_resets'];
         $t = DB::select('SHOW TABLES');
-        $table_name=env('DB_DATABASE','laravel');
+        $table_name="Tables_in_".env('DB_DATABASE','laravel');
         $tables = [];
         foreach ($t as $table) {
-            $tables[] = $table->{Tables_in_hillal.$table_name};
+            $tables[] = $table->{$table_name};
         }
         $tables_to_init = array_diff($tables, $ex);
         $role=Role::create(['name' => "developer",]);
