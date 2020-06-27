@@ -1,0 +1,35 @@
+/*Basics*/
+img{
+    max-height: 100%;
+    max-width: 100%;
+}
+/* End */
+
+.content-body{
+    width: 100%;
+}
+.content-header{
+    width: 100%;
+}
+.breadcrumb-item:last-child{
+    pointer-events: none;
+    color: black;
+}
+.breadcrumb-item:last-child a{
+    color: black;
+}
+.card{
+    padding: 0;
+}
+.card-header{
+    padding-bottom: 10px !important;
+}
+.ck-editor__editable_inline {
+    min-height: 500px;
+}
+.toast-container > div{
+    opacity: 1 !important;
+}
+
+/* Settings */
+
