@@ -6,6 +6,11 @@ use Illuminate\Support\ServiceProvider;
 use View;
 use Dl\Panel\Libraries\Facades\Upload;
 use App;
+
+
+
+use Dl\Panel\Console\Commands\dbrefresh;
+
 class DevelogsServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +41,14 @@ class DevelogsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
         View::share('user', 's');
+
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                dbrefresh::class,
+            ]);
+        }
+
 
     }
 

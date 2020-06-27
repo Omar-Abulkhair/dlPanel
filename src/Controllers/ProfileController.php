@@ -2,7 +2,7 @@
 
 namespace Dl\Panel\Controllers;
 
-use App\Rules\MatchOldPassword;
+use Dl\Panel\Rules\MatchOldPassword;
 use Dl\Panel\Models\User;
 use Validator;
 use Hash;

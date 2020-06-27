@@ -10,6 +10,9 @@ class Setting extends Model
 
     public function scopeTags($query){
         return $query->distinct('tag')->pluck('tag');
+    }
 
+    public function scopeInputs($query,$tag){
+        return$query->where('tag',$tag)->all();
     }
 }
