@@ -20,5 +20,11 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "laravel/ui": "^2.0",
+        "laravelcollective/html": "^6.1",
+        "nesbot/carbon": "^2.35",
+        "spatie/laravel-permission": "^3.13",
+        "yajra/laravel-datatables-oracle": "~9.0"
+    }
 }
