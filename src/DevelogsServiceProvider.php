@@ -50,10 +50,10 @@ class DevelogsServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/Assets/app-assets/' => public_path('/'),
+            __DIR__.'/Assets/app-assets' => public_path('/'),
         ], 'public');
         $this->publishes([
-            __DIR__.'/Assets/assets/' => public_path('/'),
+            __DIR__.'/Assets/assets' => public_path('/'),
         ], 'public');
 
     }
