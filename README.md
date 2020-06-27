@@ -45,4 +45,4 @@ php artisan develogs:install
 ```
 And we're all good to go!
 
-Start up a local development server with `php artisan serve` And, visit [http://localhost:8000/admin](http://localhost:8000/dashboard).
+Start up a local development server with `php artisan serve` And, visit [http://localhost:8000/dashboard](http://localhost:8000/dashboard).
