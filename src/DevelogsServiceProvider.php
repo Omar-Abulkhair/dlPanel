@@ -2,6 +2,7 @@
 
 namespace Dl\Panel;
 
+use Dl\Panel\Console\Commands\install;
 use Illuminate\Support\ServiceProvider;
 use View;
 use Dl\Panel\Libraries\Facades\Upload;
@@ -53,6 +54,7 @@ class DevelogsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 dbrefresh::class,
+                install::class,
             ]);
         }
 
