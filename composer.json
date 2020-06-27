@@ -16,7 +16,7 @@
     },
     "extra": {
         "branch-alias": {
-            "v": "1.0"
+            "dev-master": "1.0"
         },
         "laravel": {
             "providers": [
@@ -29,6 +29,5 @@
         "laravel/ui": "^2.0",
         "nesbot/carbon": "^2.35",
         "spatie/laravel-permission": "^3.13",
-        "yajra/laravel-datatables-oracle": "~9.0"
     }
 }
