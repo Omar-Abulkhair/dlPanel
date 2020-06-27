@@ -1,6 +1,6 @@
 <?php
 namespace Dl\Panel\Database\Seeds;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
