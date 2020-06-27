@@ -1,5 +1,5 @@
 <?php
-use Auth;
+use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::group(['namespace'=>'Dl\Panel\Controllers','prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => ['web','auth']], function () {
 
