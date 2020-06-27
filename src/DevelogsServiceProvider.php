@@ -32,14 +32,12 @@ class DevelogsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $publishablePath = dirname(__DIR__).'/public';
+
         config(['auth.providers.users.model' => Models\User::class]);
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
-        $this->publishes([
-            $publishablePath.'/assets' => public_path('develogs/panel'),
-        ], 'public');
+
 
 
 
@@ -52,9 +50,11 @@ class DevelogsServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            $publishablePath.'/app-assets' => public_path('develogs/panel'),
+            __DIR__.'/Assets/app-assets/' => public_path('develogs/panel'),
         ], 'public');
-
+        $this->publishes([
+            __DIR__.'/Assets/assets/' => public_path('develogs/panel'),
+        ], 'public');
 
     }
 
