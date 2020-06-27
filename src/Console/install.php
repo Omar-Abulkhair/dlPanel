@@ -40,9 +40,8 @@ class install extends Command
         $name = $this->ask('What is your name?');
         Log::info('Log message', array($name => 'Install Command'));
 
+        $this->call('db:refresh');
         $this->call('vendor:publish',['--tag'=>'public','--force']);
-        $this->call('migrate');
-        $this->call('db:seed',['--class'=>'Dl\Panel\Database\Seeds\DatabaseSeeder']);
 
     }
 }

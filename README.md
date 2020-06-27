@@ -10,6 +10,9 @@ After creating your new Laravel application you can include the Develogs admin p
 composer require develogs/panel
 ```
 
+```bash
+\Dl\Panel\DevelogsServiceProvider::class
+```
 ### 2. Add the DB Credentials & APP_URL
 
 Next make sure to create a new database and add your database credentials to your .env file:
