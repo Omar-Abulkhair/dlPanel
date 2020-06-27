@@ -2,12 +2,12 @@
 
 namespace Dl\Panel;
 
-use Dl\Panel\Console\Commands\install;
 use Illuminate\Support\ServiceProvider;
 use View;
 use Dl\Panel\Libraries\Facades\Upload;
 use App;
 use Illuminate\Support\Facades\Artisan;
+use Dl\Panel\Console\Commands\install;
 use Dl\Panel\Console\Commands\dbrefresh;
 
 class DevelogsServiceProvider extends ServiceProvider
@@ -22,6 +22,7 @@ class DevelogsServiceProvider extends ServiceProvider
         App::bind('Upload',function() {
             return new Upload;
         });
+
     }
 
     /**
@@ -31,7 +32,6 @@ class DevelogsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Artisan::command('ui vue --auth');
         $publishablePath = dirname(__DIR__).'/public';
         config(['auth.providers.users.model' => Models\User::class]);
         $this->loadRoutesFrom(__DIR__.'/routes.php');
@@ -41,9 +41,7 @@ class DevelogsServiceProvider extends ServiceProvider
             __DIR__.$publishablePath.'/assets' => public_path('develogs/panel'),
         ], 'public');
 
-        $this->publishes([
-            __DIR__.$publishablePath.'/app-assets' => public_path('develogs/panel'),
-        ], 'public');
+
 
 
         if ($this->app->runningInConsole()) {
@@ -52,6 +50,10 @@ class DevelogsServiceProvider extends ServiceProvider
                 install::class,
             ]);
         }
+
+        $this->publishes([
+            __DIR__.$publishablePath.'/app-assets' => public_path('develogs/panel'),
+        ], 'public');
 
 
     }

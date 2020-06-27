@@ -3,7 +3,6 @@
 namespace Dl\Panel\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 use Log;
 class install extends Command
 {
@@ -39,10 +38,9 @@ class install extends Command
     public function handle()
     {
         $name = $this->ask('What is your name?');
-        Log::info('Log message', array($name => 'db:refresh Command'));
+        $this->call('vendor:publish',['--tag'=>'public','--force']);
         $this->call('migrate');
         $this->call('db:seed',['--class'=>'Dl\Panel\Database\Seeds\DatabaseSeeder']);
-        $this->call('vendor:publish',['--tag'=>'public','--force']);
 
     }
 }
