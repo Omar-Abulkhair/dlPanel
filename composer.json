@@ -12,14 +12,12 @@
         "psr-4": {
             "Dl\\Panel\\": "src/",
             "Dl\\Panel\\Database\\Seeds": "src/Database/seeds/"
-
-        },
-        "branch-alias": {
-            "dev-master": "0.1.x-dev"
         }
     },
     "extra": {
-
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
     },
     "minimum-stability": "dev",
     "require": {}
