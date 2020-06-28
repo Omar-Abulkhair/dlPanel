@@ -3,7 +3,6 @@
 <!-- BEGIN Vendor JS-->
 
 
-
 <!-- BEGIN: Theme JS-->
 <script src="{{asset('/')}}app-assets/js/core/app-menu.js"></script>
 <script src="{{asset('/')}}app-assets/js/core/app.js"></script>
@@ -11,7 +10,7 @@
 <script src="{{asset('/')}}app-assets/vendors/js/extensions/toastr.min.js"></script>
 <script src="{{asset('/')}}app-assets/js/scripts/extensions/toastr.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
-<script src="{{asset('/')}}js/custom.js"></script>
+<script src="{{asset('/')}}assets/js/custom.js"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
