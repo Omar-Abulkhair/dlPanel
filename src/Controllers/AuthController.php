@@ -1,0 +1,73 @@
+<?php
+
+
+namespace Dl\Panel\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Session;
+use Spatie\Permission\Models\Role;
+use Validator;
+use Hash;
+use Redirect;
+
+class AuthController extends DlController
+{
+    public function showLoginForm(){
+        return view('Panel::auth.login');
+    }
+
+    public function login(Request $request){
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials,$request->remember)) {
+            return redirect()->intended('dashboard');
+        }
+    }
+
+    public function showRegistrationForm(){
+        return view('Panel::auth.register');
+    }
+
+
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name'      => 'required|min:1',
+            'email'     => 'required|unique:users',
+            'password'  => 'required|min:6|confirmed'
+        ]);
+
+        if($validator->passes()){
+            $data=$request->only(['name','email','password']);
+            $data['password']=Hash::make($data['password']);
+            $user=\App\User::create($data);
+            $user->assignRole(config('auth.defaults.role'));
+            \auth()->login($user);
+            return redirect()->intended('dashboard');
+        }else{
+            return Redirect::back()->withErrors($validator);
+        }
+
+    }
+
+
+    protected function authenticated(Request $request, $user)
+    {
+        //Check user role, if it is not admin then logout
+        if($user->hasRole(['user']))
+        {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('/login')->withErrors('You are unauthorized to login');
+        }
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return back();
+    }
+
+}
+//$user->hasRole('writer');

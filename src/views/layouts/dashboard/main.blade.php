@@ -11,10 +11,12 @@
     <div class="header-navbar-shadow"></div>
     <div class="@yield('wrapper', 'content-wrapper')">
 
-        {{--BREADCAMP START--}}
-        @include('Panel::dashboard.inc.breadcrumbs')
-        {{--BREADCAMP END--}}
         <div class="content-body">
+            @if(isset($bread))
+            {{--BREADCAMP START--}}
+            @include('Panel::dashboard.inc.breadcrumbs')
+            {{--BREADCAMP END--}}
+            @endif
             @yield('content')
         </div>
     </div>
