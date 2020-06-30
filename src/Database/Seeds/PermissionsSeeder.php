@@ -22,7 +22,6 @@ class PermissionsSeeder extends Seeder
             $tables[] = $table->{$table_name};
         }
         $tables_to_init = array_diff($tables, $ex);
-        $role=Role::create(['name' => "user",]);
         $role=Role::create(['name' => "developer",]);
         $user=User::findOrFail(1);
         $user->assignRole($role);
@@ -37,5 +36,7 @@ class PermissionsSeeder extends Seeder
             $p=Permission::create(['name' => "delete $table", 'guard_name' => "web",]);
             $role->givePermissionTo($p);
         }
+        $role1=Role::create(['name' => "user",]);
+
     }
 }

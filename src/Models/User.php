@@ -45,5 +45,9 @@ class User extends \App\User
         return $this->hasMany(Todo::class);
     }
 
+    public function role(){
+
+    }
+
 
 }

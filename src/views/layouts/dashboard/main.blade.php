@@ -12,7 +12,7 @@
     <div class="@yield('wrapper', 'content-wrapper')">
 
         <div class="content-body">
-            @if(isset($bread))
+            @if(!isset($bread))
             {{--BREADCAMP START--}}
             @include('Panel::dashboard.inc.breadcrumbs')
             {{--BREADCAMP END--}}

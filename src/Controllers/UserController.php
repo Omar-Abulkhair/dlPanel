@@ -2,10 +2,9 @@
 
 namespace Dl\Panel\Controllers;
 
-use App\User;
+use Dl\Panel\Models\User;
 use Illuminate\Http\Request;
 use Route;
-use Yajra\DataTables\DataTables;
 class UserController extends DlController
 {
     /**
@@ -15,7 +14,6 @@ class UserController extends DlController
      */
     public function index()
     {
-
         $users=User::with('roles')->paginate(2);
         return view('Panel::dashboard.pages.users.index')->withUsers($users);
     }
