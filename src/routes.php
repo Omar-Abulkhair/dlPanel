@@ -1,14 +1,13 @@
 <?php
 
-
 Route::group(['namespace'=>'Dl\Panel\Controllers', 'middleware' => ['web']], function () {
     Route::get('login','AuthController@showLoginForm')->name('login');
     Route::post('login','AuthController@login');
+
     Route::post('logout','AuthController@logout')->name('logout');
 
     Route::get('register','AuthController@showRegistrationForm')->name('register');
     Route::post('register','AuthController@register');
-
 });
 
 Route::group(['namespace'=>'Dl\Panel\Controllers','prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => ['web','auth']], function () {
@@ -29,6 +28,7 @@ Route::group(['namespace'=>'Dl\Panel\Controllers','prefix' => 'dashboard', 'as' 
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
         Route::get('/', 'ProfileController@index')->name('index');
         Route::get('edit', 'ProfileController@edit')->name('edit');
+        Route::post('edit', 'ProfileController@AvatarUpdate')->name('updateAvatar');
         Route::post('update', 'ProfileController@update')->name('update');
     });
 

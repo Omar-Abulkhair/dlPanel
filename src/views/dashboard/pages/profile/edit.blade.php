@@ -26,9 +26,24 @@
                 }
             });
         });
+
+
+        $('#user-profile-password').on('submit',function (e) {
+            e.preventDefault();
+            let url= "{{route('dashboard.profile.update')}}";
+            let data=$(this).serialize();
+            $.post(url,data).done(function (r) {
+                if (r.status==true){
+                    alert('Yeah');
+                }else{
+                    //TODO : Notification System
+                }
+            });
+        });
+
     </script>
 @stop
-
+@php($bread=false)
 @section('content')
     <!-- account setting page start -->
     <section id="page-account-settings">
@@ -60,18 +75,6 @@
                             Social links
                         </a>
                     </li>
-                    {{--<li class="nav-item">
-                        <a class="nav-link d-flex py-75" id="account-pill-connections" data-toggle="pill" href="#account-vertical-connections" aria-expanded="false">
-                            <i class="feather icon-feather mr-50 font-medium-3"></i>
-                            Connections
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill" href="#account-vertical-notifications" aria-expanded="false">
-                            <i class="feather icon-message-circle mr-50 font-medium-3"></i>
-                            Notifications
-                        </a>
-                    </li>--}}
                 </ul>
             </div>
             <!-- right content section -->
@@ -81,21 +84,22 @@
                         <div class="card-body">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
-                                    <div class="media">
+                                    <form id="updateAvatar" method="post" action="{{route('dashboard.profile.updateAvatar')}}" class="media" enctype="multipart/form-data">
+                                        @csrf
                                         <a href="javascript: void(0);">
-                                            <img src="{{asset($user->avatar)}}" class="rounded mr-75" alt="profile image" height="64" width="64">
+                                            <img src="{{asset('/storage/'.$user->avatar)}}" id="profile-avatar-image" class="rounded mr-75" alt="profile image" height="64" width="64">
                                         </a>
                                         <div class="media-body mt-75">
                                             <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Upload new photo</label>
-                                                <input type="file" id="account-upload" hidden>
+                                                <label id="profile-avatar-btn" class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Upload new photo</label>
+                                                <input type="file" id="avatar" hidden name="avatar">
                                                 <button class="btn btn-sm btn-outline-warning ml-50">Reset</button>
                                             </div>
                                             <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG. Max
                                                     size of
                                                     800kB</small></p>
                                         </div>
-                                    </div>
+                                    </form>
                                     <hr>
                                     <form validate id="user-profile-general" class="user-profile-form">
                                         <input type="hidden" name="type" value="general">
@@ -170,7 +174,7 @@
                                                     <div class="controls">
                                                         <label for="account-retype-new-password">Retype New
                                                             Password</label>
-                                                        <input type="password" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
+                                                        <input type="password" name="password_confirmation" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,19 +204,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+                                            {{--<div class="col-12">
                                                 <div class="form-group">
                                                     <label for="languageselect2">Languages</label>
-                                                    <select class="form-control" id="languageselect2" name="language" {{--multiple="multiple"--}}>
+                                                    <select class="form-control" id="languageselect2" name="language" --}}{{--multiple="multiple"--}}{{-->
                                                         <option value="en" selected>English</option>
-                                                        <option value="sp">Spanish</option>
-                                                        <option value="fr">French</option>
-                                                        <option value="ru">Russian</option>
-                                                        <option value="gr">German</option>
                                                         <option value="ar" selected>Arabic</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>--}}
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <div class="controls">
@@ -236,18 +236,20 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
-                                    <form>
+                                    <form class="user-profile-form" id="user-profile-social" validate>
+                                        <input type="hidden" name="type" value="social">
+                                        {{--TODO :: Social--}}
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="account-twitter">Twitter</label>
-                                                    <input type="text" id="account-twitter" class="form-control" placeholder="Add link" value="{{$user->socialMedia->facebook}}">
+                                                    <input type="text" name="twitter" id="account-twitter" class="form-control" placeholder="Add link" value="{{$user->socialMedia->twitter}}">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="account-facebook">Facebook</label>
-                                                    <input type="text" id="account-facebook" class="form-control" value="{{$user->socialMedia->facebook}}" placeholder="Add link">
+                                                    <input type="text" name="facebook" id="account-facebook" class="form-control" value="{{$user->socialMedia->facebook}}" placeholder="Add link">
                                                 </div>
                                             </div>
 

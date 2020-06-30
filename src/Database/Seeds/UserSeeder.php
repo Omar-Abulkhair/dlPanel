@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'avatar'=>'app-assets/images/portrait/small/avatar-s-17.jpg',
             'address'=>"Sharkia ,Egypt",
             'website'=>'https://develogs.com',
-            'socialMedia'=>"{\"facebook\":\"omar\"}",
+            'socialMedia'=>'{"facebook":"omar facebook","twitter":"omar twitter"}',
             'active'=>1
         ]);
 

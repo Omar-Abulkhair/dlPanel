@@ -19,4 +19,23 @@ $( document ).ready(function() {
         });
     });
 
+
+    function readURL(input,id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $(id).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+    $('#profile-avatar-btn').click(function(){ $('#avatar').trigger('click'); });
+
+    $("#avatar").change(function() {
+        readURL(this,'#profile-avatar-image');
+        $('#updateAvatar').submit();
+    });
+
 });
