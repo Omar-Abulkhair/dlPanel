@@ -53,8 +53,13 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
+                    @if(!empty($user->avatar))
                     <th><img style='width: 100px; border-radius: 50%;' class='user-avatar'
-                             src='{{asset($user->avatar)}}'></th>
+                             src='{{asset('/storage/'.$user->avatar)}}'></th>
+                    @else
+                        <th><img style='width: 100px; border-radius: 50%;' class='user-avatar'
+                             src='/app-assets/images/portrait/small/avatar-s-17.jpg'></th>
+                    @endif
                     <th>{{$user->name}}</th>
                     <th>{{$user->email}}</th>
                     @if(isset($user->roles[0]->name))
