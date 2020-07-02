@@ -2,7 +2,7 @@
     File Name: chart-echart.js
     Description: echarts examples
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/

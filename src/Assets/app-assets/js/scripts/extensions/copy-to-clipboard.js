@@ -2,7 +2,7 @@
     File Name: copy-to-clipboard.js
     Description: Copy to clipboard
     --------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/

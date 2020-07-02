@@ -329,7 +329,7 @@ select.form-control:not([multiple="multiple"]) {
   .form-label-group.has-icon-left > label {
     left: 36px; }
 
-/* Vuexy Custom Checkbox */
+/* Develogs Custom Checkbox */
 .vs-checkbox-con {
   position: relative;
   display: flex;
@@ -404,7 +404,7 @@ select.form-control:not([multiple="multiple"]) {
         align-items: center;
         color: #fff; }
 
-/* Vuexy Custom Radio */
+/* Develogs Custom Radio */
 .vs-radio-con {
   position: relative;
   display: flex;
@@ -1109,7 +1109,7 @@ html [type="button"],
     Description: Contain header navigation bar, vertical main navigation bar and
     horiznotal main navigation bar related SCSS.
     ----------------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
 ================================================================================================*/
@@ -2136,7 +2136,7 @@ body[data-col="1-column"] .header-navbar.floating-nav {
   File Name: progress.scss
   Description: Extended bootstrap progress bar scss.
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+  Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
   Author: PIXINVENT
   Author URL: http://www.themeforest.net/user/pixinvent
   ----------------------------------------------------------------------------------------
@@ -2166,7 +2166,7 @@ body[data-col="1-column"] .header-navbar.floating-nav {
 	File Name: list-group.scss
 	Description: Contain list item, list group related extended SCSS.
 	----------------------------------------------------------------------------------------------
-	Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+	Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
 	Author: PIXINVENT
 	Author URL: http://www.themeforest.net/user/pixinvent
 ================================================================================================*/

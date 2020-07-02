@@ -2,7 +2,7 @@
     File Name: app-todo.js
     Description: app-todo
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Develogs  - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Develogs
     Author URL: https://develogs.com
 ==========================================================================================*/
