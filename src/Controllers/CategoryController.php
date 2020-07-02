@@ -110,7 +110,7 @@ class CategoryController extends DlController
 
     public function destroy(Category $category)
     {
-        Category::destroy($category->id);
+        $category->delete();
         return redirect()->back();
     }
 

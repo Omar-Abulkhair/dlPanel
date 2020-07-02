@@ -12,7 +12,7 @@ class TasksSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('todos')->insert([
+        /*DB::table('todos')->insert([
             'name' => 'task1',
             'description' => 'omar.abulkhair@outlook.com',
             'is_checked' => false,
@@ -33,6 +33,6 @@ class TasksSeeder extends Seeder
             'is_checked' => false,
             'user_id' => 1,
             'parent_id' => 1,
-        ]);
+        ]);*/
     }
 }

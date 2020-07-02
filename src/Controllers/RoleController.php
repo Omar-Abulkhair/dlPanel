@@ -18,7 +18,7 @@ class RoleController extends DlController
     public function create()
     {
         $permissions = Permission::get();
-        return view('Panel::dashboard.pages.roles.add', compact('permissions'));
+        return view('Panel::dashboard.pages.roles.create', compact('permissions'));
     }
 
     public function store(Request $request)

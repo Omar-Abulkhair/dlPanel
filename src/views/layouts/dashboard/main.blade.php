@@ -27,5 +27,6 @@
 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
 </form>
+@include("Panel::dashboard.inc.message")
 </body>
 </html>

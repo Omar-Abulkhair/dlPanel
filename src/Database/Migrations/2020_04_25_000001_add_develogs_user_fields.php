@@ -11,7 +11,7 @@ class AddDevelogsUserFields extends Migration
     {
         Schema::table('users', function ($table) {
             if (!Schema::hasColumn('users', 'avatar')) {
-                $table->string('avatar')->nullable()->after('email')->default('app-assets/images/portrait/small/avatar-s-2.jpg');
+                $table->string('avatar')->nullable()->after('email');
             }
             $table->string('username')->unique()->nullable()->after('avatar');
             $table->string('about')->nullable()->after('username');

@@ -7,7 +7,7 @@ use Dl\Panel\Models\Setting;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 use Validator;
-
+use Illuminate\Support\Facades\Storage;
 class SettingController extends DlController
 {
 

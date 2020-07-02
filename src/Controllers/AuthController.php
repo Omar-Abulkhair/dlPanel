@@ -3,6 +3,7 @@
 
 namespace Dl\Panel\Controllers;
 
+use Dl\Panel\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -21,7 +22,9 @@ class AuthController extends DlController
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials,$request->remember)) {
-            return redirect()->intended('dashboard');
+            $user=User::findOrfail(\auth()->id());
+            $user->update(['lastLogin'=>now()]);
+            return redirect()->route('dashboard.home')->withNotify(['status'=>true,'message'=>"Success Login"]);
         }
     }
 
@@ -43,9 +46,10 @@ class AuthController extends DlController
             $user=\App\User::create($data);
             $user->assignRole(config('auth.defaults.role'));
             \auth()->login($user);
-            return redirect()->intended('dashboard');
+            $user->update(['lastLogin'=>now()]);
+            return redirect()->route('dashboard')->withNotify(['status'=>true,'message'=>"Success Login"]);
         }else{
-            return Redirect::back()->withErrors($validator);
+            return redirect()->back()->withNotify(['status'=>false,'errors'=>$validator->errors()->all()]);
         }
 
     }
@@ -58,7 +62,7 @@ class AuthController extends DlController
         {
             $this->guard()->logout();
             $request->session()->invalidate();
-            return redirect('/login')->withErrors('You are unauthorized to login');
+            return redirect('/login')->withNotify(['status'=>false,'errors'=>['You are unauthorized to login']]);
         }
     }
 

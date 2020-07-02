@@ -55,7 +55,7 @@
 
                                                         @if(!empty($input->value))
                                                             <img class="d-block mb-1" style="max-height: 200px"
-                                                                 src="{{asset("storage/".$input->value)}}"
+                                                                 src="{{asset("/storage/".$input->value)}}"
                                                                  alt="setting">
                                                         @else
                                                             <img class="d-block mb-1" style="max-height: 200px"
@@ -207,7 +207,9 @@
                     cache: false,
                     contentType: false,
                     processData: false
-                })
+                }).done(function () {
+                    toastr.success("One Field Updated Successfully");
+                });
             });
         }
 
@@ -218,6 +220,8 @@
             let action=$('#delete-form').attr('action');
             $('#delete-form').attr('action',action.replace('id',id));
             $('#delete-form').submit();
+            toastr.error("One Field Deleted");
+
         });
 
     </script>

@@ -2,8 +2,9 @@
 
 namespace Dl\Panel\Controllers;
 
+use Dl\Panel\Models\Post;
 use Illuminate\Http\Request;
-
+use Dl\Panel\Models\User;
 class HomeController extends DlController
 {
     /**
@@ -11,10 +12,6 @@ class HomeController extends DlController
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +20,9 @@ class HomeController extends DlController
      */
     public function index()
     {
-        return view('home');
+        $counter['posts']=Post::count();
+        $counter['users']=User::count();
+        return view('Panel::dashboard.pages.index',$counter);
+
     }
 }

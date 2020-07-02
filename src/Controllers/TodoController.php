@@ -84,9 +84,8 @@ class TodoController extends DlController
 
     public function destroy(Todo $todo)
     {
-        $task=Todo::find($todo->id);
-        if($task->user_id==auth()->id()){
-            if($task->delete()){
+        if($todo->user_id==auth()->id()){
+            if($todo->delete()){
                 return response()->json(['status'=>true]);
             }
             return response()->json(['status'=>false,'msg'=>'Sorry some thing wrong']);

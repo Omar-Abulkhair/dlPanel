@@ -2,6 +2,8 @@
 
 namespace Dl\Panel;
 
+use Dl\Panel\Libraries\Facades\Develogs;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use View;
 use Dl\Panel\Libraries\Facades\Upload;
@@ -21,6 +23,14 @@ class DevelogsServiceProvider extends ServiceProvider
     {
         App::bind('Upload',function() {
             return new Upload;
+        });
+        App::bind('Develogs',function() {
+            return new Develogs;
+        });
+
+        $this->app->booting(function() {
+            $loader = AliasLoader::getInstance();
+            $loader->alias('Develogs', Develogs::class);
         });
 
     }

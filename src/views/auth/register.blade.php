@@ -30,6 +30,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/')}}app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/')}}app-assets/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/')}}app-assets/css/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/')}}app-assets/vendors/css/extensions/toastr.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/')}}app-assets/css/plugins/extensions/toastr.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -129,11 +131,13 @@
 <script src="{{asset('/')}}app-assets/js/core/app-menu.js"></script>
 <script src="{{asset('/')}}app-assets/js/core/app.js"></script>
 <script src="{{asset('/')}}app-assets/js/scripts/components.js"></script>
+<script src="{{asset('/')}}app-assets/vendors/js/extensions/toastr.min.js"></script>
+<script src="{{asset('/')}}app-assets/js/scripts/extensions/toastr.js"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
 <!-- END: Page JS-->
-
+@include("Panel::dashboard.inc.message")
 </body>
 <!-- END: Body-->
 

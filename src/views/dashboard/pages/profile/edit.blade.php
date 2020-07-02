@@ -87,7 +87,11 @@
                                     <form id="updateAvatar" method="post" action="{{route('dashboard.profile.updateAvatar')}}" class="media" enctype="multipart/form-data">
                                         @csrf
                                         <a href="javascript: void(0);">
+                                            @if($user->avatar)
                                             <img src="{{asset('/storage/'.$user->avatar)}}" id="profile-avatar-image" class="rounded mr-75" alt="profile image" height="64" width="64">
+                                            @else
+                                                <img src="/app-assets/images/portrait/small/avatar-s-17.jpg" id="profile-avatar-image" class="rounded mr-75" alt="profile image" height="64" width="64">
+                                            @endif
                                         </a>
                                         <div class="media-body mt-75">
                                             <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">

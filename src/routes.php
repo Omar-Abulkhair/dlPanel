@@ -12,9 +12,7 @@ Route::group(['namespace'=>'Dl\Panel\Controllers', 'middleware' => ['web']], fun
 
 Route::group(['namespace'=>'Dl\Panel\Controllers','prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => ['web','auth']], function () {
 
-    Route::get('/', function () {
-        return view('Panel::dashboard.pages.index');
-    })->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
 
     # USERS
     Route::get('/users/table', 'UserController@datatable')->name('users.table');

@@ -80,6 +80,6 @@ class TodoCategoryController extends DlController
      */
     public function destroy(TodoCategory $todoCategory)
     {
-        //
+        $todoCategory->delete();
     }
 }
