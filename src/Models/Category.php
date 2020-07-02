@@ -12,4 +12,12 @@ class Category extends Model
     public function parent(){
         return $this->belongsTo(self::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class)
+            ->published()
+            ->orderBy('created_at', 'DESC');
+    }
+    
 }
