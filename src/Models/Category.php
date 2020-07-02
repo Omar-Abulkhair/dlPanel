@@ -19,5 +19,11 @@ class Category extends Model
             ->published()
             ->orderBy('created_at', 'DESC');
     }
-    
+
+
+    public function childes()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
 }

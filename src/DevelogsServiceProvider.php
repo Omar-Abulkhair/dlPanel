@@ -3,6 +3,7 @@
 namespace Dl\Panel;
 
 use Dl\Panel\Libraries\Facades\Develogs;
+use Dl\Panel\Models\Category;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use View;
@@ -48,7 +49,14 @@ class DevelogsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
         $this->loadViewsFrom(__DIR__."/views",'Panel');
 
-
+        \Carbon\Carbon::setLocale('ar');
+        view()->share([
+            'poweredBy'=>"Develogs",
+            'site_title'=>"",
+            'site_logo'=>"",
+            'cats'=>true,
+            'categories'=>Category::with(['childes'])->get(),
+        ]);
 
 
 
