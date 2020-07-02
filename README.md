@@ -2,28 +2,15 @@
 
 ## Installation Steps
 
-### 1. Require and Install Authentication
 
-```bash
-composer require laravel/ui
-```
+### 1. Require the Package
 
-```bash
-php artisan ui vue --auth
-```
-
-### 2. Require the Package
-
-Now you can require Package with the following command:
+you can require Package with the following command:
 
 ```bash
 composer require develogs/panel
 ```
-### 3. Add Service Provider to your `app/config`
 
-```bash
-\Dl\Panel\DevelogsServiceProvider::class
-```
 ### 2. Add the DB Credentials & APP_URL
 
 Next make sure to create a new database and add your database credentials to your .env file with url:
@@ -37,7 +24,7 @@ DB_PASSWORD=secret
 ```
 
 
-### 4. Run The Installer
+### 3. Run The Installer
 
 Lastly, we can install Package.
 ```bash
