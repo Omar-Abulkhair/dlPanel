@@ -16,9 +16,7 @@ class User extends \App\User
      *
      * @var array
      */
-    /*protected $fillable = [
-        'name', 'email', 'password',
-    ];*/
+    protected $fillable = [];
 
     protected $guarded =['id','created_at','language'];
 

@@ -20,7 +20,7 @@
             let data=$(this).serialize();
             $.post(url,data).done(function (r) {
                 if (r.status==true){
-                    alert('Yeah');
+                    toastr.success("Your Profile Updated Successfully");
                 }else{
                     //TODO : Notification System
                 }

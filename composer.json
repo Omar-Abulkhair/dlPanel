@@ -29,6 +29,8 @@
     "require": {
         "laravel/ui": "^2.0",
         "nesbot/carbon": "^2.35",
-        "spatie/laravel-permission": "^3.13"
+        "spatie/laravel-permission": "^3.13",
+        "laravelcollective/html": "~6.0"
+
     }
 }
