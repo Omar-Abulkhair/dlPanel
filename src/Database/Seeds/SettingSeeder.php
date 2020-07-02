@@ -25,5 +25,12 @@ class SettingSeeder extends Seeder
             'value'=>'/assets/images/logo.jpeg'
         ]);
 
+        DB::table('settings')->insert([
+            'key'=>'todoState',
+            'type'=>'boolean',
+            'tag'=>'admin',
+            'value'=>'false'
+        ]);
+
     }
 }
