@@ -24,7 +24,9 @@ class PostsSeeder extends Seeder
             'meta_keywords'=>'meta_keywords',
             'status'=>'pending',
             'featured'=>0,
-            'image'=>null
+            'image'=>null,
+            'created_at'=>"2020-05-19 13:13:00",
+            'updated'=>"2020-05-19 13:13:00",
         ]);
     }
 }
