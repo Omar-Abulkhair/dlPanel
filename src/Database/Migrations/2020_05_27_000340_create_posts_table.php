@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('meta_description');
             $table->string('meta_keywords');
             $table->string('status');
+            $table->integer('views')->default(0);
             $table->boolean('featured')->default(0);
             $table->timestamps();
         });
